@@ -31,7 +31,7 @@
     comment: Area of the feature, in projection units
   - &osm_timestamp
     name: osm_timestamp
-    type: "timestamp with timezone"
+    type: "timestamp with time zone"
     comment: Timestamp that the OSM feature was last modified
 - name: admin_line
   type: line
