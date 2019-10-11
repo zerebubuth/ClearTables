@@ -13,6 +13,7 @@ end
 
 function transform_water_area (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.water = tags["water"] or (tags["waterway"] == "riverbank" and "river") or (tags["landuse"] == "reservoir" and "reservoir") or nil
     cols.name = tags["name"]
     cols.names = names(tags)
@@ -26,6 +27,7 @@ end
 
 function transform_waterway (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     cols.waterway = tags["waterway"]

@@ -27,6 +27,7 @@ end
 
 function transform_recreation (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     cols.recreation = leisure[tags["leisure"]] or amenity[tags["amenity"]]

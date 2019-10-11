@@ -27,6 +27,7 @@ end
 
 function transform_pier_area (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
 
@@ -35,6 +36,7 @@ end
 
 function transform_pier_line_raw (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
 

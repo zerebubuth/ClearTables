@@ -20,6 +20,7 @@ end
 
 function transform_admin_area (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     cols.level = admin_level(tags["admin_level"])

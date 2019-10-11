@@ -29,6 +29,10 @@
     name: way_area
     type: real
     comment: Area of the feature, in projection units
+  - &osm_timestamp
+    name: osm_timestamp
+    type: "timestamp with timezone"
+    comment: Timestamp that the OSM feature was last modified
 - name: admin_line
   type: line
   comment: Administrative boundaries as lines
@@ -41,6 +45,7 @@
   - <<: *name
   - <<: *names
   - <<: *admin_level
+  - <<: *osm_timestamp
 - name: place_point
   type: point
   comment: Geographic places
@@ -52,6 +57,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: class
     type: text
     comment: Classification of place
@@ -75,6 +81,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: class
     type: text
     comment: Classification of protected area
@@ -91,6 +98,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: water
     type: text
     comment: Type of water feature
@@ -110,6 +118,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - &wetland
     name: wetland
     type: text
@@ -127,6 +136,7 @@
   - <<: *name
   - <<: *names
   - <<: *way_area
+  - <<: *osm_timestamp
 # Natural type linear features
 - name: waterways
   type: line
@@ -139,6 +149,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: waterway
     type: text
     comment: Type of waterway
@@ -161,6 +172,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: class
     type: transportation_class
     comment: Type of rail
@@ -179,6 +191,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - &road_class
     name: class
     type: transportation_class
@@ -213,6 +226,7 @@
   - <<: *name
   - <<: *names
   - <<: *road_class
+  - <<: *osm_timestamp
   - name: refs
     type: text[]
   - name: maxspeed
@@ -236,6 +250,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: type
     type: text
   - name: ref
@@ -251,6 +266,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - &transit_mode
     name: transit_mode
     type: text
@@ -269,6 +285,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: transit_mode
     type: text
     comment: Mode of transportation
@@ -286,6 +303,7 @@
   tagtransform-relation-function: drop_all
   tagtransform-relation-member-function: drop_all
   tags:
+  - <<: *osm_timestamp
   - name: barrier
     type: text
     comment: Type of barrier
@@ -305,6 +323,7 @@
   - <<: *name
   - <<: *names
   - <<: *way_area
+  - <<: *osm_timestamp
 - name: pier_line_raw
   type: line
   comment: Piers as areas
@@ -316,6 +335,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: forced_line
     type: boolean
     comment: If the feature has been forced to be a linestring
@@ -331,6 +351,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: airport
     type: text
   - &iata
@@ -352,6 +373,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: airport
     type: text
   - <<: *iata
@@ -371,6 +393,7 @@
     type: text
     comment: Type of aeroway feature
   - <<: *way_area
+  - <<: *osm_timestamp
 - name: aeroway_line
   type: line
   comment: Airport-related linear features
@@ -381,6 +404,7 @@
   tagtransform-relation-member-function: drop_all
   tags:
   - <<: *aeroway
+  - <<: *osm_timestamp
   - name: ref
     type: text
     comment: Reference of the feature
@@ -394,6 +418,7 @@
   tagtransform-relation-function: drop_all
   tagtransform-relation-member-function: drop_all
   tags:
+  - <<: *osm_timestamp
   - &unit
     name: unit
     type: text
@@ -434,6 +459,7 @@
   - <<: *suburb
   - <<: *city
   - <<: *way_area
+  - <<: *osm_timestamp
 - name: buildings
   type: polygon
   tagtransform: building.lua
@@ -444,6 +470,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: building
     type: text
     comment: Type of the building
@@ -465,6 +492,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - &landform
     name: landform
     type: text
@@ -484,6 +512,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: landform
     type: text
     comment: Type of natural feature
@@ -499,6 +528,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - &education
     name: education
     type: text
@@ -516,6 +546,7 @@
   - <<: *names
   - <<: *education
   - <<: *way_area
+  - <<: *osm_timestamp
 - name: recreation_point
   type: point
   comment: Leisure and recreation facilities mapped as points
@@ -527,6 +558,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - &recreation
     name: recreation
     type: text
@@ -545,6 +577,7 @@
   - <<: *names
   - <<: *recreation
   - <<: *way_area
+  - <<: *osm_timestamp
 - name: healthcare_point
   type: point
   comment: Healthcare facilities mapped as points
@@ -556,6 +589,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - &healthcare
     name: healthcare
     type: text
@@ -579,6 +613,7 @@
   - <<: *healthcare
   - <<: *emergency
   - <<: *way_area
+  - <<: *osm_timestamp
 - name: landuse
   type: polygon
   comment: Man-made landuse information
@@ -590,6 +625,7 @@
   tags:
   - <<: *name
   - <<: *names
+  - <<: *osm_timestamp
   - name: landuse
     type: text
     comment: Type of landuse

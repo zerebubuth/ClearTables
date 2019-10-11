@@ -16,6 +16,7 @@ end
 
 function transform_barrier_line (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.barrier = tags["barrier"]
     cols.height = height(tags["height"])
     return cols

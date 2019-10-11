@@ -37,6 +37,7 @@ end
 
 function transform_place (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     if settlements[tags["place"]] then
         cols.class = "settlement"
         cols.rank = tags["place"]

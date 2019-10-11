@@ -20,6 +20,7 @@ end
 
 function transform_transit (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     if tags["amenity"] == "ferry_terminal" then

@@ -27,6 +27,7 @@ local wetland_types = {
 
 function transform_wetland_area (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.wetland = wetland_types[tags["wetland"]] or nil
     cols.name = tags["name"]
     cols.names = names(tags)

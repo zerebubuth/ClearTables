@@ -13,6 +13,7 @@ end
 
 function transform_wood_area (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     return cols

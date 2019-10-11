@@ -13,6 +13,7 @@ end
 
 function transform_protected_area (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.class = tags["boundary"] == "national_park" and "national_park" or 
                  tags["leisure"] == "nature_reserve" and "nature_reserve" or
                  nil

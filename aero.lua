@@ -22,6 +22,7 @@ end
 
 function transform_airport(tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.airport = tags["aeroway"] -- guaranteed by accept_airport to be either aerodrome or heliport
     cols.name = tags["name"]
     cols.names = names(tags)
@@ -33,6 +34,7 @@ end
 
 function transform_aeroway_line(tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.ref = tags["ref"]
     cols.aeroway =  tags["aeroway"]
     return cols
@@ -40,6 +42,7 @@ end
 
 function transform_aeroway_area(tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.aeroway =  tags["aeroway"]
     return cols
 end

@@ -119,6 +119,7 @@ end
 
 function transform_road_point (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.type = tags["highway"]
     cols.name = tags["name"]
     cols.names = names(tags)
@@ -128,6 +129,7 @@ end
 
 function transform_road (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     cols.refs = split_list(tags["ref"])
@@ -150,6 +152,7 @@ end
 
 function transform_rail (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     if railway[tags["railway"]] then

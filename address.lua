@@ -14,6 +14,7 @@ end
 
 function transform_address (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.unit = tags["addr:unit"]
     cols.housenumber = tags["addr:housenumber"]
     cols.housename = tags["addr:housename"]

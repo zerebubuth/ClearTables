@@ -17,6 +17,7 @@ end
 
 function transform_landform_point (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     cols.landform = tags["natural"] == "peak" and "peak" or
@@ -38,6 +39,7 @@ end
 
 function transform_landform_line (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     cols.name = tags["name"]
     cols.names = names(tags)
     -- With both natural and man_made keys accepted all the possibilities

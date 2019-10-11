@@ -13,6 +13,7 @@ end
 
 function transform_building (tags)
     local cols = {}
+    cols.osm_timestamp = tags["osm_timestamp"]
     -- Prefer the information that it's a railway station or aeroway terminal to the building tag
     -- from accept_building we know railway=station or aeroway=terminal or non-no building
     cols.building = tags["railway"] == "station" and "railway_station" or
